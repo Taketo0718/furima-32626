@@ -6,7 +6,6 @@
 | -------------------- | ------- | ----------- |
 | nickname             | string  | null: false |
 | email                | string  | null: false |
-| password             | string  | null: false |
 | encrypted_password   | string  | null: false |
 | last_name_zenkaku    | string  | null: false |
 | first_name_zenkaku   | string  | null: false |
@@ -21,16 +20,17 @@
 
 ## items テーブル
 
-| Column                 | Type    | Options     |
-| -----------------------| ------- | ----------- |
-| name                   | string  | null: false |
-| description            | text    | null: false |
-| category_id            | integer | null: false |
-| condition_id           | integer | null: false |
-| fee_payer_id           | integer | null: false |
-| deliver_from_id        | integer | null: false |
-| days_until_delivery_id | integer | null: false |
-| price                  | integer | null: false |
+| Column                 | Type       | Options                        |
+| ---------------------- | ---------- | ------------------------------ |
+| name                   | string     | null: false                    |
+| description            | text       | null: false                    |
+| category_id            | integer    | null: false                    |
+| condition_id           | integer    | null: false                    |
+| fee_payer_id           | integer    | null: false                    |
+| deliver_from_id        | integer    | null: false                    |
+| days_until_delivery_id | integer    | null: false                    |
+| price                  | integer    | null: false                    |
+| user                   | references | null: false, foreign_key: true |
 
 ### Association
 
@@ -52,14 +52,15 @@
 
 ## addresses テーブル
 
-| Column   | Type       | Options                        |
-| -------- | -----------| ------------------------------ |
-| sale     | references | null: false, foreign_key: true |
-| postcode | string     | null: false                    |
-| city     | string     | null: false                    |
-| address  | string     | null: false                    |
-| building | string     | null: true                     |
-| phone    | string     | null: false                    |
+| Column        | Type       | Options                        |
+| ------------- | ---------- | ------------------------------ |
+| sale          | references | null: false, foreign_key: true |
+| postcode      | string     | null: false                    |
+| prefecture_id | integer    | null: false                    |
+| city          | string     | null: false                    |
+| address       | string     | null: false                    |
+| building      | string     |                                |
+| phone         | string     | null: false                    |
 
 ### Association
 
