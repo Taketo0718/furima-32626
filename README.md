@@ -42,7 +42,7 @@
 | Column   | Type       | Options                        |
 | -------- | ---------- | ------------------------------ |
 | item     | references | null: false, foreign_key: true |
-| buyer    | references | null: false, foreign_key: true |
+| user     | references | null: false, foreign_key: true |
 
 ### Association
 
