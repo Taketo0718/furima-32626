@@ -7,25 +7,22 @@
 | nickname             | string  | null: false |
 | email                | string  | null: false |
 | password             | string  | null: false |
+| encrypted_password   | string  | null: false |
 | last_name_zenkaku    | string  | null: false |
 | first_name_zenkaku   | string  | null: false |
 | last_name_katakana   | string  | null: false |
 | first_name_katakana  | string  | null: false |
-| birth_year           | integer | null: false |
-| birth_month          | integer | null: false |
-| birth_day            | integer | null: false |
+| birth_date           | date    | null: false |
 
 ### Association
 
 - has_many :items
 - has_many :sales
-- has_many :addresses
 
 ## items テーブル
 
 | Column                 | Type    | Options     |
 | -----------------------| ------- | ----------- |
-| image                  | string  | null: false |
 | name                   | string  | null: false |
 | description            | text    | null: false |
 | category_id            | integer | null: false |
@@ -39,13 +36,12 @@
 
 - belongs_to :user
 - has_one :sale
-- has_one :address
 
 ## sales テーブル
 
 | Column   | Type       | Options                        |
 | -------- | ---------- | ------------------------------ |
-| item_id  | references | null: false, foreign_key: true |
+| item     | references | null: false, foreign_key: true |
 | buyer_id | integer    | null: false                    |
 
 ### Association
@@ -56,13 +52,15 @@
 
 ## addresses テーブル
 
-| Column  | Type       | Options                        |
-| ------- | -----------| ------------------------------ |
-| sale_id | references | null: false, foreign_key: true |
-| address | string     | null: false                    |
+| Column   | Type       | Options                        |
+| -------- | -----------| ------------------------------ |
+| sale     | references | null: false, foreign_key: true |
+| postcode | string     | null: false                    |
+| city     | string     | null: false                    |
+| address  | string     | null: false                    |
+| building | string     | null: true                     |
+| phone    | string     | null: false                    |
 
 ### Association
 
-- belongs_to :user
-- belongs_to :item
 - belongs_to :sale
