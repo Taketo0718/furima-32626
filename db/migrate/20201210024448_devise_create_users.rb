@@ -10,7 +10,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
       t.string :lastname_zenkaku,   null: false
       t.string :firstname_zenkaku,  null: false
       t.string :lastname_katakana,  null: false
-      t.string :firstname_katakana,  null: false
+      t.string :firstname_katakana, null: false
       t.date   :birth_date,         null: false
 
       ## Recoverable
